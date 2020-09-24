@@ -1,13 +1,13 @@
-package fr.tpws.persister;
+package fr.tpws;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PersisterApplication {
+public class ServicesApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PersisterApplication.class, args);
+		SpringApplication.run(ServicesApplication.class, args);
 	}
 
 }
