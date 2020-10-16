@@ -13,40 +13,27 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 
-@Path("Images")
+@Path("images")
 public class ImageRessource {
-
 	
-	String ak = "http://localhost:8888/projetweb/";
-	
+	private final String localDir = "http://localhost:8888/projetweb/";
+	private final String localListImg = "C:\\Users\\Unamed\\Documents\\GitHub\\Pepsi-Coca\\web\\a.txt";
 
-	    @GET
-	    @Produces(MediaType.APPLICATION_JSON)
-	    public List<String> getLink() throws IOException {
-			List <String> tab = new ArrayList<>();
-	      	int i = 0;
-	          File f = new File("/Applications/MAMP/htdocs/ProjetWeb/a.txt");
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<String> getListImages() throws IOException {
 
-	          BufferedReader b = new BufferedReader(new FileReader(f));
+		List <String> tab = new ArrayList<>();
+		File f = new File(localListImg);
 
-	          String readLine;
-	          
-	          while ((readLine = b.readLine()) != null) {
-	        	  String link = ak+readLine;
-	              System.out.println(link);
-	              tab.add(link);
-	              i++;
-	              System.out.println(ak);
-	              
-	          }
-	          
-	          return tab;
-	          
+		BufferedReader b = new BufferedReader(new FileReader(f));
+
+		String readLine;
+		while ((readLine = b.readLine()) != null) {
+			tab.add(localDir + readLine);
+
 		}
-	    
-	   
-	                        
-	}
-
-
-
+		b.close();
+		return tab;
+	}             
+}
